@@ -152,7 +152,7 @@ public class MyList {
 		return indexes;
 	}
 	
-	public void printList(char[] list) throws Exception{
+	public void printList() throws Exception{
 		if (isEmpty()) {
 			throw new Exception("The list is empty");
 		}
@@ -160,7 +160,7 @@ public class MyList {
 		for(int i = 0; i < counter; i++) {
 			System.out.print(list[i] + ", ");
 		}
-		
+		System.out.println();
 	}
 	
 	//todo - izveidot funkciju, kas kā argumentu saņem elementu un atgriež nākamo elementu (veikt nepieciešamās pārbaudes);
@@ -180,6 +180,15 @@ public class MyList {
 		list[index1] = list[index2];
 		list[index2] = temp;
 		
+	}
+	
+	public void makeEmpty() {
+		if (isEmpty()) {
+			size = DEFAULT_SIZE;
+			counter = 0;
+			list = new char[size];
+			System.gc();
+		}
 	}
 	
 	
