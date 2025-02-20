@@ -47,20 +47,20 @@ public class MainService {
 		
 		
 		MyList<Integer> listForInt = new MyList<Integer>(3);
-		listForInt.add('a');
-		listForInt.add('b');
-		listForInt.add('c');
-		listForInt.add('d');
+		listForInt.add(1);
+		listForInt.add(4);
+		listForInt.add(3);
+		listForInt.add(7);
 		try
 		{
 			listForInt.printList();
-			listForInt.add('Z', 1);
+			listForInt.add(0, 1);
 			listForInt.printList();
 			
 			listForInt.remove(0);
 			listForInt.printList();
 			
-			listForInt.add('c');
+			listForInt.add(6);
 			System.out.println(listForInt.getter(1));
 			System.out.println(Arrays.toString(listForInt.search('c')));
 			
@@ -77,7 +77,7 @@ public class MainService {
 			System.out.println(e);
 		}
 		System.out.println("ADD t ");
-		listForInt.add('t');
+		listForInt.add(9);
 		try
 		{
 			listForInt.printList();
