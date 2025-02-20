@@ -72,8 +72,17 @@ public class MyList {
 		list = listNew;
 		System.gc();
 
-			
-
+	}
+	
+	public void add(char element) {
+		if (isFull()) {
+			resize();
+		}
+		
+		list[counter++] = element;
+		//for(int i =0; i < list.length; i++ ) {
+		//	list[i-1] = element;
+		}
 	}
 
 }
