@@ -107,13 +107,13 @@ public class MainService {
 			System.out.println(Arrays.toString(listForStudent.search(st2)));
 			
 			listForStudent.sort();
-			listForInt.printList();
+			listForStudent.printList();
 			
-			listForInt.remove(0);
-			listForInt.printList();
+			listForStudent.remove(0);
+			listForStudent.printList();
 			
 			System.out.println("ADD t ");
-			listForInt.add(new Student("Janis", "Berzins"));
+			listForStudent.add(new Student("Janis", "Berzins"));
 		}
 		catch (Exception e) {
 			System.out.println(e);
