@@ -80,9 +80,23 @@ public class MyList {
 		}
 		
 		list[counter++] = element;
-		//for(int i =0; i < list.length; i++ ) {
-		//	list[i-1] = element;
+	}
+	
+	public void add(char element, int index)throws Exception {
+		if (index < 0 || index > counter) {
+			//Exception myExc = new Exception("The index is not accepted");
+			throw new Exception("The index is not accepted");
 		}
+		if (isFull()) {
+			resize();
+		}
+		list[index] = element;
+		counter++;
+		
+	}
+	
+	public void delete(int index) {
+		
 	}
 
 }
