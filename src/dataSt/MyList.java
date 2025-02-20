@@ -112,7 +112,7 @@ public class MyList {
 			list[i] = list[i-1];
 		}
 		
-		list[counter] = ' ';
+		list[counter - 1] = ' ';
 		counter--;
 	}
 	
@@ -122,8 +122,27 @@ public class MyList {
 		}
 		if (isEmpty()) {
 			throw new Exception("The list is empty");
-			
+		}
 		return list[index];
+		
 	}
+	
+	public int search(char element) throws Exception{
+		if (isEmpty()) {
+			throw new Exception("The list is empty");
+		}
+		int place = 0;
+		for (int i = 0; i < counter; i++) {
+			if (list[i] == element) {
+				place = i;
+			}else {
+				throw new Exception("The element is not found");
+			}
+		}
+		
+		return place;
+	}
+	
+	
 
 }
