@@ -127,22 +127,40 @@ public class MyList {
 		
 	}
 	
-	public int search(char element) throws Exception{
+	public int[] search(char element) throws Exception{
 		if (isEmpty()) {
 			throw new Exception("The list is empty");
 		}
-		int place = 0;
+		int elementCount = 0;
 		for (int i = 0; i < counter; i++) {
 			if (list[i] == element) {
-				place = i;
+				elementCount ++;
 			}else {
 				throw new Exception("The element is not found");
 			}
 		}
+		int[] indexes = new int[elementCount];
+		int indexCounter = 0;
 		
-		return place;
+		for (int i = 0; i < counter; i++) {
+			if(list[i] == element) {
+				indexes[indexCounter] = i;
+				indexCounter ++;
+			}
+		}
+		
+		return indexes;
 	}
 	
-	
+	public void printList(char[] list) throws Exception{
+		if (isEmpty()) {
+			throw new Exception("The list is empty");
+		}
+		
+		for(int i = 0; i < counter; i++) {
+			System.out.print(list[i] + ", ");
+		}
+		
+	}
 
 }
