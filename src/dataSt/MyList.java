@@ -127,7 +127,7 @@ public class MyList<Ttype>{
 		
 	}
 	
-	public int[] search(char element) throws Exception{
+	public int[] search(Ttype element) throws Exception{
 		if (isEmpty()) {
 			throw new Exception("The list is empty");
 		}
