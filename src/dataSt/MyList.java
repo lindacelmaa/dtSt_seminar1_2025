@@ -90,13 +90,40 @@ public class MyList {
 		if (isFull()) {
 			resize();
 		}
+		
+		for(int i = counter; i > index; i--) {
+			list[i] = list[i-1];
+		}
+		
+		
 		list[index] = element;
 		counter++;
 		
 	}
 	
-	public void delete(int index) {
+	public void remove(int index) throws Exception{
+		if (index < 0 || index > counter) {
+			throw new Exception("The index is not accepted");
+		}
+		if (isEmpty()) {
+			throw new Exception("The list is empty");
+		}
+		for(int i = index; i < counter; i++) {
+			list[i] = list[i-1];
+		}
 		
+		list[counter] = ' ';
+		counter--;
+	}
+	
+	public char getter(int index) throws Exception{
+		if (index < 0 || index > counter) {
+			throw new Exception("The index is not accepted");
+		}
+		if (isEmpty()) {
+			throw new Exception("The list is empty");
+			
+		return list[index];
 	}
 
 }
