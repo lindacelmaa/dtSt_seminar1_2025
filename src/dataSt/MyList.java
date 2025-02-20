@@ -1,16 +1,16 @@
 package dataSt;
 
-public class MyList {
+public class MyList<Ttype>{
 	//mainigie
 
-	private char[] list;
+	private Ttype[] list;
 	private final int DEFAULT_SIZE = 7;
 	private int size = DEFAULT_SIZE;
 	private int counter = 0;
 
 	//noklusetais konstruktors
 	public MyList() {
-		list = new char[size];
+		list = (Ttype[]) new Object[size];
 
 	}
 
@@ -19,7 +19,7 @@ public class MyList {
 		if(inputSize > 0) {
 			size = inputSize;
 		}
-		list = new char[size];
+		list = (Ttype[])new Object[size];
 	}
 
 	private boolean isFull() {
@@ -63,7 +63,7 @@ public class MyList {
 			size = (int)(size * 1.5); //135.5
 		}
 
-		char[] listNew = new char[size];
+		Ttype[] listNew = (Ttype[])new Object[size];
 
 		for (int i = 0 ; i < counter; i++) {
 			listNew[i] = list[i];
@@ -74,7 +74,7 @@ public class MyList {
 
 	}
 	
-	public void add(char element) {
+	public void add(Ttype element) {
 		if (isFull()) {
 			resize();
 		}
@@ -82,7 +82,7 @@ public class MyList {
 		list[counter++] = element;
 	}
 	
-	public void add(char element, int index)throws Exception {
+	public void add(Ttype element, int index)throws Exception {
 		if (index < 0 || index > counter) {
 			//Exception myExc = new Exception("The index is not accepted");
 			throw new Exception("The index is not accepted");
@@ -112,11 +112,11 @@ public class MyList {
 			list[i] = list[i-1];
 		}
 		
-		list[counter - 1] = ' ';
+		list[counter - 1] = null;
 		counter--;
 	}
 	
-	public char getter(int index) throws Exception{
+	public Ttype getter(int index) throws Exception{
 		if (index < 0 || index > counter) {
 			throw new Exception("The index is not accepted");
 		}
@@ -133,7 +133,7 @@ public class MyList {
 		}
 		int elementCount = 0;
 		for (int i = 0; i < counter; i++) {
-			if (list[i] == element) {
+			if (list[i].equals(element)) {
 				elementCount ++;
 			}else {
 				throw new Exception("The element is not found");
@@ -143,7 +143,7 @@ public class MyList {
 		int indexCounter = 0;
 		
 		for (int i = 0; i < counter; i++) {
-			if(list[i] == element) {
+			if(list[i].equals(element)) {
 				indexes[indexCounter] = i;
 				indexCounter ++;
 			}
@@ -168,7 +168,8 @@ public class MyList {
 	public void sort() {
 		for(int i = 0; i < counter; i++) {
 			for(int j = 0; j < counter; j++) {
-				if (list[i] > list[j]) {
+				//if (list[i] > list[j]) {
+				if(((Comparable)(list[i])).compareTo(list[i]) == 1) {
 					swap(i, j);
 				}
 			}
@@ -176,7 +177,7 @@ public class MyList {
 	}
 	
 	private void swap(int index1, int index2) {
-		char temp = list[index1];
+		Ttype temp = list[index1];
 		list[index1] = list[index2];
 		list[index2] = temp;
 		
@@ -186,7 +187,7 @@ public class MyList {
 		if (isEmpty()) {
 			size = DEFAULT_SIZE;
 			counter = 0;
-			list = new char[size];
+			list = (Ttype[]) new Object[size];
 			System.gc();
 		}
 	}
